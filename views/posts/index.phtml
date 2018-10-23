@@ -1,0 +1,30 @@
+<div class="content">
+    <div class="container">
+        <div class="content-grids">
+            <div class="col-md-8 content-main">
+                <div class="content-grid">
+                     <? if($this->posts) : ?>
+                        <? foreach ($this->posts as $post) : ?>
+                            <div class="content-grid-info">
+                                <img src="/template/images/<?= $post['post_img']?>" alt=""/>
+                                <div class="post-info">
+                                    <h4><a href="/post/detail/<?= $post['post_code']?>"><?= $post['post_title']?></a> <?= $post['post_date']?> / 27 Comments</h4>
+                                    <p><?= $post['post_short_content'] ?></p>
+                                    <a href="/post/detail/<?= $post['post_code']?>"><span></span>Читать дальше</a>
+                                </div>
+                            </div>
+                        <? endforeach; ?>
+                    <? else : ?>
+                        <div class="content-grid-info">
+                            <p>По вашему запросу ничего не найдено</p>
+                        </div>
+                    <? endif; ?>
+                </div>
+            </div>
+            <div class="col-md-4 content-right">
+                <? include_once ROOT . '/views/layouts/right_sidebar.phtml'?>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

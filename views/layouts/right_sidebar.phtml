@@ -1,0 +1,27 @@
+<div class="recent">
+    <h3>НЕДАВНИЕ ПОСТЫ</h3>
+    <ul>
+        <? foreach ($this->lastPosts as $lastPost) : ?>
+            <li><a href="/post/detail/<?= $lastPost['post_code']?>"><?= $lastPost['post_title']?></a></li>
+        <? endforeach; ?>
+    </ul>
+</div>
+<div class="clearfix"></div>
+<div class="archives">
+    <h3>АРХИВЫ</h3>
+    <ul>
+        <li><a href="#">October 2017</a></li>
+        <li><a href="#">September 2017</a></li>
+        <li><a href="#">August 2017</a></li>
+        <li><a href="#">July 2017</a></li>
+    </ul>
+</div>
+<div class="categories">
+    <h3>КАТЕГОРИИ</h3>
+    <ul>
+        <? foreach ($this->categories as $category) : ?>
+            <li><a href="/posts/<?= $category['cat_code']?>"><?= $category['cat_name']?></a></li>
+        <? endforeach; ?>
+    </ul>
+</div>
+<div class="clearfix"></div>

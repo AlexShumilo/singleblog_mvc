@@ -1,0 +1,36 @@
+<div class="single">
+    <div class="container">
+        <div class="col-md-8 single-main">
+            <div class="single-grid">
+                <img src="/template/images/<?= $this->post['post_img']?>" alt=""/>
+                <p><?= $this->post['post_content']?></p>
+            </div>
+            <ul class="comment-list">
+                <? foreach($this->comments as $comment) : ?>
+                    <? if($comment['verified'] == 1) : ?>
+                        <li class="comment-list-inner">
+                            <p class="post-author_head">Автор: <b><?= $comment['user_name']?></b></p>
+                            <p><?= $comment['com_text']?></p>
+                        </li>
+                    <? endif; ?>
+                <? endforeach; ?>
+            </ul>
+            <div class="content-form">
+                <h3>Leave a comment</h3>
+                <form method="post" action="/post/sendcomment">
+                    <input type="text" name="name" placeholder="Name" required/>
+                    <input type="text" name="email" placeholder="Email" required/>
+                    <input type="text" name="phone" placeholder="Phone" required/>
+                    <textarea name="message" placeholder="Message" required></textarea>
+                    <input type="hidden" name="post_id" value="<?= $this->post['post_id'] ?>">
+                    <input type="submit" name="submit" value="SEND"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-4 content-right">
+            <? include_once ROOT . '/views/layouts/right_sidebar.phtml'?>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="single">
+    <div class="container">
+        <div class="col-md-8 single-main">
+            <? if($this->result == true) : ?>
+            <p>Спасибо за ваш комментарий. <a href="/post/detail/<?= $this->postLink['post_code']?>">Вернуться к новости</a></p>
+            <? else : ?>
+            <p>Комментарий не отправлен. Повторите <a href="/post/detail/<?= $this->postLink['post_code']?>">отправку</a>.</p>
+            <? endif; ?>
+        </div>
+
+        <div class="col-md-4 content-right">
+            <? include_once ROOT . '/views/layouts/right_sidebar.phtml'?>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
